@@ -15,4 +15,4 @@ Blog web applicatin written in html,css(Bootstrap) and server side programming  
 
 
 ##### Things to keep in mind while setting up projects
-- Add your own .env file (In this project it contains database hostname,username,passwords etc.)
+- Add your own .env file (In this project it contains database name,hostname,username,passwords etc.)
