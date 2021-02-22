@@ -1,7 +1,7 @@
 # Blog web application using Node.js.
 
 
-Blod web applicatin written in html,css(Bootstrap) and server side programming  in node.js(express js framework) . In this  MySQL database is used
+Blog web applicatin written in html,css(Bootstrap) and server side programming  in node.js(express js framework) . In this  MySQL database is used
 
 
 ### Features
