@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+    <title>Hello, world!</title>
+</head>
+
+<body>
+
+    <%- include('./partials/nav') %>
+
+
+
+
+    <div class="container my-5">
+        <div class="row mt-2">
+            <div class="col">
+                <h1> <%= results[0].blogtitle %> </h1>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col">
+                <h5>Date: <%= new Date(results[0].blogdate).toLocaleDateString() %> </h5>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col">
+                <a href="/" class="btn bg-dark text-white">All Articles</a>
+                <a href="/blog/editblog/<%= results[0].blogid%>" class="btn btn-secondary">EDIT BLOG</a>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col">
+                <img src="/uploads/<%= results[0].blogimage%>" class="img-fluid rounded mx" alt="">
+            </div>
+        </div>
+
+
+        <div class="row mt-5">
+            <div class="col">
+                <p>
+                    <%- results[0].blogcontent %>
+                </p>
+            </div>
+        </div>
+
+
+
+        <div class="row  mt-5">
+            <div class="col">
+                <h3>POST COMMENT</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <form action="/comment/newcomment" method="POST">
+                    <input type="hidden" name="blogid" value="<%= results[0].blogid %>">
+                    <div class="form-group mb-2">
+                        <label>Username</label>
+                        <input type="text" class="form-control" name="commentusername" aria-describedby="emailHelp"
+                            placeholder="Enter Username here" required>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label>Enter Comment</label>
+                        <textarea class="form-control" name="commentcontent" rows="5"
+                            placeholder="Enter Comment Here" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success my-3">Post Comment</button>
+                    <button type="reset" class="btn btn-info my-3">Reset</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col">
+                <h5>COMMENTS</h5>
+            </div>
+        </div>
+
+
+        <!-- ------------------------------- 1st Comment------------------------------------------- -->
+        <% if(comments.length > 0){
+
+                comments.forEach(comment=>{ %>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="alert border-1 border-success" role="alert" style="background-color: #e1fce1;">
+                    <h4 class="alert-heading"> <%= comment.commentusername%> </h4>
+                    <p><%= comment.commentcontent %></p>
+                    <button class="btn btn-primary mb-2" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#expandreply<%= comment.commentid%>" aria-expanded="false"
+                        aria-controls="collapseExample">
+                        Reply
+                    </button>
+                    <button class="btn btn-primary mb-2" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#expandviewreply<%= comment.commentid %>" aria-expanded="false"
+                        aria-controls="collapseExample">
+                        View Replies
+                    </button>
+                    <form class="collapse mt-2" id="expandreply<%= comment.commentid%>" action="/comment/replycomment" method="POST">
+                        <input type="hidden" value="<%= comment.commentid %>" name="commentid">
+                        <input type="hidden" name="blogid" value="<%= results[0].blogid %>">
+                        <div class="form-group mb-2">
+                            <label>Reply by Username</label>
+                            <input type="text" class="form-control" name="replyusername" placeholder="Enter Username here" required >
+                        </div>
+                        <div class="form-group mt-2">
+                            <label>Enter Reply</label>
+                            <textarea class="form-control"  rows="5" required name="replycontent" placeholder="Enter Reply here"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success my-3">Reply Comment</button>
+                        <button type="reset" class="btn btn-info my-3" >Reset</button>
+                    </form>
+
+                </div>
+                <%  if(comment["replies"].length > 0){
+                        comment["replies"].forEach(reply=>{ %>
+
+
+
+                <div class="row">
+                    <div class="col-12 collapse" id="expandviewreply<%= comment.commentid%>">
+                        <div class="row justify-content-end">
+                            <div class="col-11">
+                                <div class="alert alert-success" role="alert">
+                                    <h4 class="alert-heading"><%= reply.replyusername %></h4>
+                                    <p><%= reply.replycontent %></p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <%    })
+                } %>
+            </div>
+
+        </div>
+        <% })    %>
+        <%  } %>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+    <title>Hello, world!</title>
+</head>
+
+<body>
+
+    <%- include('./partials/nav') %>
+
+<div class="container">
+    <div class="row my-4">
+        <% if(results[0]){%>
+        <div class="col-12">
+            <h3>New Blog</h3>
+        </div>
+        <div class="col-12">
+            <form action="/blog/newblog" method="POST" enctype="multipart/form-data">
+                <%- include('./partials/form')%>
+            </form>
+        </div>
+        <% } %>
+    </div>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

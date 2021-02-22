@@ -1,0 +1,22 @@
+<div class="mb-3">
+    <label for="" class="form-label">Enter Title</label>
+    <input type="text" class="form-control" name="title" placeholder="Enter Title" value="<%= results[0].blogtitle %>" required>
+  </div>
+  <div class="mb-3">
+      <label for="" class="form-label">Enter Description</label>
+      <textarea class="form-control" placeholder="Enter Description" name="description" rows="3" required><%= results[0].blogdescription %></textarea>
+  </div>
+  <div class="mb-3">
+      <label for="" class="form-label">Enter Blog Content (Markdown Format)</label>
+      <textarea class="form-control" placeholder="Enter Markdownhere" name="markdown" rows="5" required><%= results[0].markdown %></textarea>
+  </div>
+
+  
+  <div class="mb-3">
+      <label for="" class="form-label">Select Image File</label>
+      <input type="file" class="form-control" name="blogimage" accept="image/*" required>
+    </div>
+  
+  <button type="submit" class="btn btn-success">Save</button>
+  <button type="reset" class="btn btn-info">Reset</button>
+  <a href="/" class="btn bg-dark text-white">Cancel</a>
