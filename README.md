@@ -6,7 +6,8 @@ Blog web applicatin written in html,css(Bootstrap) and server side programming  
 
 ### Features
 
-- Add new Blog
+- Add new Blog 
+- Blog content in Markdown Style
 - Edit Blog
 - Blog with Image
 - Post a Comment on Blog
