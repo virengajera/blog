@@ -6,7 +6,10 @@ const morgan=require('morgan')
 const { connection, mysql } = require('./models/connection.js')
 const blogrouter=require('./routes/blogroutes.js')
 const commentrouter=require('./routes/commentroutes.js')
+const PORT=process.env.PORT || 3000
 const app = express()
+
+require('dotenv').config()
 
 app.use(morgan('dev'))
 
@@ -31,4 +34,4 @@ app.use('/blog',blogrouter)
 app.use('/comment',commentrouter)
 
 
-app.listen(3000, () => { })
+app.listen(PORT, () => {console.log(`listening at ${PORT}`) })
