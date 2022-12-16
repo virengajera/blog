@@ -14,6 +14,13 @@ Blog web applicatin written in html,css(Bootstrap) and server side programming  
 - Reply on comment
 - Delete a Blog
 
+## Requirements
+- MySQL
+- Node.js (Express.js)
 
-##### Things to keep in mind while setting up projects
-- Add your own .env file (In this project it contains database name,hostname,username,passwords etc.)
+## Setting up project
+- Create file called .env which stores enviroment variables. For reference follow .envsample file.
+- Run SQL queries from blogdb.sql file
+- Run command in terminal ``` npm install ``` to download all dependencies
+- To run applicatin run command ``` npm start ``` or ``` node index.js ```
+- Navigate to localhost:3000 (By default)
