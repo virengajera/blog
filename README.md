@@ -20,7 +20,7 @@ Blog web applicatin written in HTML,CSS(Bootstrap) and server side programming  
 
 ## Setting up project
 - Create file called .env which stores enviroment variables. For reference follow [.envsample file](https://github.com/virengajera/blog/blob/main/.envsample).
-- Run SQL queries from [blogdb.sql file] (https://github.com/virengajera/blog/blob/main/blogdb.sql)
+- Run SQL queries from [blogdb.sql file](https://github.com/virengajera/blog/blob/main/blogdb.sql)
 - Run command in terminal ``` npm install ``` to download all dependencies
 - To run applicatin run command ``` npm start ``` or ``` node index.js ```
 - Navigate to [localhost:3000](localhost:3000) (By default)
