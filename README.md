@@ -23,4 +23,4 @@ Blog web applicatin written in HTML,CSS(Bootstrap) and server side programming  
 - Run SQL queries from [blogdb.sql file](https://github.com/virengajera/blog/blob/main/blogdb.sql)
 - Run command in terminal ``` npm install ``` to download all dependencies
 - To run applicatin run command ``` npm start ``` or ``` node index.js ```
-- Navigate to [localhost:3000](localhost:3000) (By default)
+- Navigate to [localhost:3000](http://localhost:3000) (By default)
